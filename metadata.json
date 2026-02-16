@@ -1,0 +1,7 @@
+{
+  "name": "Copy of HealthGuard AI - Disease Risk Prediction",
+  "description": "A sophisticated disease risk prediction system that leverages Gemini AI to analyze patient metrics and provide clinical insights with audio-based diagnostics.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
