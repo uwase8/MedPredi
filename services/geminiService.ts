@@ -2,7 +2,7 @@
 import { GoogleGenAI, Type, Modality } from "@google/genai";
 import { PatientData, PredictionResult } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || 'AIzaSyCEx2Lnrir_Ysm3Ef8aVPJyMgfG2jS-wfQ' });
 
 // Utility to decode raw PCM audio data from Gemini TTS
 async function decodeAudioData(
@@ -80,6 +80,9 @@ export const analyzeRisk = async (data: PatientData): Promise<PredictionResult> 
     }
   });
 
+  if (!response.text) {
+    throw new Error("No text returned from model");
+  }
   return JSON.parse(response.text);
 };
 
